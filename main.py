@@ -14,4 +14,10 @@ async def read_user(user_id: str):
 async def names():
     return ["rick", "berry"]
 
+@app.get("/whook")
+def message():
+    return ["hello webhook"]
+
+
+
     
