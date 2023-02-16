@@ -18,6 +18,14 @@ async def names():
 def message():
     return ["hello webhook"]
 
+@app.get("/names/{user_name}")
+async def read_name(user_name: str):
+    return {"user_name": user_name}
+
+
+
+
+
 
 
     
