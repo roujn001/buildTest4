@@ -2,6 +2,9 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+fake_items_db = [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
+
+
 @app.get("/")
 async def root():
     return {"message":"hello there"}
@@ -22,10 +25,9 @@ def message():
 async def read_name(user_name: str):
     return {"user_name": user_name}
 
+@app.get("/items/")
+async def read_item(skip: int =0 , limit:int =7):
+    return fake_items_db[skip:skip+limit]
 
 
-
-
-
-
-    
+   
